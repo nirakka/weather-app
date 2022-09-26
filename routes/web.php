@@ -14,5 +14,19 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $location = 'Toronto';
+    $apiKey      = config('services.openweather.key');
+    
+    $response = Http::get("https://api.openweathermap.org/data/2.5/weather?q={$location}&appid={$apiKey}&units=metric");
+    $responseFuture = Http::get("api.openweathermap.org/data/2.5/forecast?appid={$apiKey}&units=metric&q={$location}");
+
+
+    return view('welcome', [
+        'currentWeather' => $response->json(),
+        'futureWeather'  => $responseFuture->json(),
+    ]);
 });
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
