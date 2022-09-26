@@ -18,6 +18,7 @@
         "vue": "^3.2.37"
     },
     "dependencies": {
-        "tailwindcss": "^3.1.8"
+        "tailwindcss": "^3.1.8",
+        "vue-autosuggest": "^2.2.0"
     }
 }

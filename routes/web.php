@@ -14,17 +14,35 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    $location = 'Toronto';
+    $location = request()->location ? request()->location : 'Tokyo, Japan';
     $apiKey      = config('services.openweather.key');
     
     $response = Http::get("https://api.openweathermap.org/data/2.5/weather?q={$location}&appid={$apiKey}&units=metric");
     $responseFuture = Http::get("api.openweathermap.org/data/2.5/forecast?appid={$apiKey}&units=metric&q={$location}");
 
-
     return view('welcome', [
         'currentWeather' => $response->json(),
         'futureWeather'  => $responseFuture->json(),
+        'location' => $location,
     ]);
+});
+
+Route::get('/weather', function () {
+    $location = request()->location ? request()->location : 'Tokyo, Japan';
+    $apiKey      = config('services.openweather.key');
+    
+    $response = Http::get("https://api.openweathermap.org/data/2.5/weather?q={$location}&appid={$apiKey}&units=metric");
+ 
+    return response()->json($response->json(), 200);
+});
+
+Route::get('/future-weather', function () {
+    $location = request()->location ? request()->location : 'Tokyo, Japan';
+    $apiKey      = config('services.openweather.key');
+    
+    $responseFuture = Http::get("api.openweathermap.org/data/2.5/forecast?appid={$apiKey}&units=metric&q={$location}");
+
+    return response()->json($responseFuture->json(), 200);
 });
 
 Auth::routes();

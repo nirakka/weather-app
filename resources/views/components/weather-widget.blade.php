@@ -9,7 +9,7 @@
                         </div>
                         <div class="ml-5">
                             <div class="font-semibold">{{ ucfirst($currentWeather['weather'][0]['description']) }}</div>
-                            <div class="text-gra-400">Tokyo, Japan</div>
+                            <div class="text-gra-400">{{ $location }} </div>
                         </div>
                         
                     </div>
