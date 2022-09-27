@@ -14,11 +14,12 @@
 - 各都市のfoursquareで登録されている場所を表示
 - レスポンシブデザインで作成
 
-## 使用技術
+## 開発環境
+- PHP 8.1.10
 - Laravel Framework 9.31.0
 - Vue.js 3.2.39
 - npm 8.15.0
-- Tailwindcss 
+- Tailwindcss 3.1.8
 - Openweathermap api
 - Foursquare api
 
