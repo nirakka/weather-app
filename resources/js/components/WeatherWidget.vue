@@ -1,16 +1,15 @@
 <template>
-     <div class="w-128 px-2 items-center">
+     <div class=" px-2 items-center">
             <input type="search" id="address" class="py-2 px-2 form-control" list="pref" placeholder="where are we going?" />
             <datalist id="pref"> 
             <option v-for="n in ['Tokyo','Yokohama', 'Kyoto','Osaka','Sapporo', 'Nagoya']" :key="n">{{n}}</option>
             </datalist>
             <button v-on:click="greet" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-2 rounded">
             Go</button>
-            <p>Selecteed: <strong id="address-value">none</strong></p>
             
         </div>
     <div class="columns-2xs px-2 py-2">
-        <div class="w-128 w-full bg-gray-900 text-white text-sm rounded-lg overflow-hidden">
+        <div class="w-full bg-gray-900 py-4 text-white text-sm rounded-lg overflow-hidden">
                 <div class="current-weather relative">
                     
                     <div class="flex items-center justify-between px-4 py-1">
@@ -52,7 +51,7 @@
                     </li>
                 </ul>
             </div>
-            <div class="w-128 w-full overflow-hidden">
+            <div class="w-full overflow-hidden">
                 <div class="font-bold">Venues around {{ location }}</div>
                 <ul class="future-weather bg-gray-400 rounded-lg px-4 py-6 space-y-8">
                     <li v-for="place in places" :key="place.fsd_id" class="grid grid-cols-3 items-center">

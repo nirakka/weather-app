@@ -33,5 +33,8 @@ return [
     'openweather' => [
         'key' => env('OPENWEATHER_KEY'),
     ],
+    'foursquare' => [
+        'key' => env('FOURSQUARE_KEY'),
+    ],
 
 ];

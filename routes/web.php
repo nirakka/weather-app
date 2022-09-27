@@ -16,25 +16,14 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     $location = request()->location ? request()->location : 'Tokyo, Japan';
     $apiKey      = config('services.openweather.key');
-    $apiKeyPlace = "fsq3dd686dKVzcgZRRwun62n64Ql4qLSR81IQ7dsDesya0Y=";
-
+    $apiKeyPlace = config('services.foursquare.key');
     $response = Http::get("https://api.openweathermap.org/data/2.5/weather?q={$location}&appid={$apiKey}&units=metric");
     $responseFuture = Http::get("api.openweathermap.org/data/2.5/forecast?appid={$apiKey}&units=metric&q={$location}");
     $responsePlace = Http::withHeaders([
-        'Authorization' => 'fsq3dd686dKVzcgZRRwun62n64Ql4qLSR81IQ7dsDesya0Y=',
+        'Authorization' => $apiKeyPlace,
         'accept' => 'application/json',
     ])
     ->get("https://api.foursquare.com/v3/places/search?near={$location}&limit=5");
-
-
-// $client = new \GuzzleHttp\Client();
-
-// $responsePlace = $client->request('GET', 'https://api.foursquare.com/v3/places/search?near=Osaka&limit=5', [
-//   'headers' => [
-//     'Authorization' => 'fsq3dd686dKVzcgZRRwun62n64Ql4qLSR81IQ7dsDesya0Y=',
-//     'accept' => 'application/json',
-//   ],
-// ]);
 
     return view('welcome', [
         'currentWeather' => $response->json(),
@@ -63,10 +52,10 @@ Route::get('/future-weather', function () {
 
 Route::get('/places', function () {
     $location = request()->location ? request()->location : 'Tokyo, Japan';
-    $apiKeyPlace = "fsq3dd686dKVzcgZRRwun62n64Ql4qLSR81IQ7dsDesya0Y=";
+    $apiKeyPlace = config('services.foursquare.key');
 
     $responsePlace = Http::withHeaders([
-        'Authorization' => 'fsq3dd686dKVzcgZRRwun62n64Ql4qLSR81IQ7dsDesya0Y=',
+        'Authorization' => $apiKeyPlace,
         'accept' => 'application/json',
     ])
     ->get("https://api.foursquare.com/v3/places/search?near={$location}&limit=5");
