@@ -4,7 +4,7 @@
             <datalist id="pref"> 
             <option v-for="n in ['Tokyo','Yokohama', 'Kyoto','Osaka','Sapporo', 'Nagoya']" :key="n">{{n}}</option>
             </datalist>
-            <button v-on:click="greet" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-2 rounded">
+            <button v-on:click="press" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-2 rounded">
             Go</button>
             
         </div>
@@ -106,11 +106,9 @@ import axios from 'axios';
             }
         },
         methods: {
-            greet: function (event) {
+            press: function (event) {
                 var address = document.querySelector('#address');
-                // メソッド内の `this` は、 Vue インスタンスを参照します
                 this.location = address.value;
-                // `event` は、ネイティブ DOM イベントです
             },
             convertToDay(timestamp) {
                 const newData = new Date(timestamp*1000)
