@@ -15,19 +15,26 @@
 - レスポンシブデザインで作成
 
 ## 使用技術
-- Laravel
-- Vue.js
-- Tailwindcss
+- Laravel Framework 9.31.0
+- Vue.js 3.2.39
+- npm 8.15.0
+- Tailwindcss 
 - Openweathermap api
 - Foursquare api
 
 ## デプロイ方法
-### git clone
+
+.envに以下のようにAPI KEYを追記
+```
+OPENWEATHER_KEY=XXXXXXXXXXXXXXXXXXXXX
+FOURSQUARE_KEY=XXXXXXXXXXXXXXXXXXXXX
+```
+
 ```
 $ git clone https://github.com/nirakka/weather-app.git
+$ cp .env.example .env 　#.envにAPI KEYを追記
 $ npm install  
 $ php artisan serve
-$ npm run dev
 ```
 
 ## 工夫した点
