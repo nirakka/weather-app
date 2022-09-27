@@ -19,6 +19,7 @@
 - Laravel Framework 9.31.0
 - Vue.js 3.2.39
 - npm 8.15.0
+- Composer version 2.2.18
 - Tailwindcss 3.1.8
 - Openweathermap api
 - Foursquare api
@@ -33,8 +34,10 @@ FOURSQUARE_KEY=XXXXXXXXXXXXXXXXXXXXX
 
 ```
 $ git clone https://github.com/nirakka/weather-app.git
-$ cp .env.example .env 　#.envにAPI KEYを追記
-$ npm install  
+$ cd weather-app && cp .env.example .env 　#.envにAPI KEYを追記
+$ composer install
+$ npm install
+$ npm run build
 $ php artisan serve
 ```
 
