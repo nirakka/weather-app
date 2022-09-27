@@ -27,8 +27,5 @@
         <div class="mt-8" id="app">
             <weather-widget></weather-widget>
         </div>
-        <div class='mt-8'>
-            <!-- <x-weather-widget :currentWeather="$currentWeather" :futureWeather="$futureWeather" :location="$location" /> -->
-        </div>
     </body>
 </html>

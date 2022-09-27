@@ -9,17 +9,19 @@ class WeatherWidget extends Component
     public $currentWeather;
     public $futureWeather;
     public $location;
+    public $places;
 
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($currentWeather, $futureWeather, $location)
+    public function __construct($currentWeather, $futureWeather, $location, $places)
     {
         $this->currentWeather = $currentWeather;
         $this->futureWeather  = $futureWeather;
         $this->location = $location;
+        $this->places = $places;
 
     }
 
